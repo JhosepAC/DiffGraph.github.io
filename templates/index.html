@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiffGraph</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Encabezado */
+        .title-graph {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1d3557;
+            text-align: center;
+        }
+
+        /* Contenedor del gráfico */
+        #graph {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title-graph">Gráfico de Ecuación Diferencial</h1>
+    <div id="graph"></div>
+    <footer>
+        &copy; 2024 - Desarrollado con por Jhosep Argomedo.
+    </footer>
+    <script>
+        var graphData = {{ graph_json|safe }};
+        Plotly.newPlot('graph', graphData);
+    </script>
+</body>
+</html>
